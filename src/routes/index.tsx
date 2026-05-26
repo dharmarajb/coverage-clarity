@@ -439,7 +439,7 @@ function PlaceholderStage({ title }: { title: string }) {
 
 /* ---------- Main ---------- */
 function Index() {
-  const [active, setActive] = useState("coverage");
+  const [active, setActive] = useState("blueprint");
 
   return (
     <div className="min-h-screen flex bg-[#f6f5fa]">
