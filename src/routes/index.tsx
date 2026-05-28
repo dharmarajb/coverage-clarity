@@ -361,10 +361,31 @@ function MetaCoverageView() {
           <h2 className="text-lg font-semibold">Metadata Coverage Analysis Report</h2>
           <p className="text-sm text-muted-foreground">Click any section to inspect covered & uncovered items</p>
         </div>
-        <div className="ml-auto">
-          <Badge className="bg-amber-100 text-amber-700 hover:bg-amber-100 text-sm">Overall · 85% (53/62)</Badge>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <Card className="p-6 flex flex-col items-center justify-center">
+          <div className="relative">
+            <Donut value={85} color="#7c5cff" size={160} />
+            <div className="absolute inset-0 grid place-content-center text-center">
+              <div className="text-2xl font-bold">85%</div>
+              <div className="text-xs text-muted-foreground">Coverage</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-4 mt-3 text-xs">
+            <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-emerald-500" />Covered: 53</span>
+            <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-rose-500" />Missing: 9</span>
+          </div>
+        </Card>
+
+        <div className="grid grid-cols-2 gap-3 lg:col-span-2">
+          <StatTile icon={Layers} label="Total Items" value="62" tone="violet" />
+          <StatTile icon={CheckCircle2} label="Covered" value="53" tone="emerald" />
+          <StatTile icon={XCircle} label="Missing" value="9" tone="rose" />
+          <StatTile icon={PieIcon} label="Sections" value="6" tone="amber" />
         </div>
       </div>
+
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {metaSections.map((s) => {
